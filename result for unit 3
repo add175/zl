@@ -1,0 +1,20 @@
+m=1
+the summary of r^2 is 1
+m=2
+the summary of r^2 is 1.02944
+m=3
+the summary of r^2 is 1.05887
+...
+m=6
+the summary of r^2 is 1.12511
+m=7
+the summary of r^2 is 1.12774
+...
+for rn=(rn-1^0.5/(rn-1^0.5+1))^2
+summary= r1^2+r2^2+r3^2+...+rn-1^2+rn^2
+with the m become larger and larger the fianal reuslt will much near to 4/pi
+
+#conclusion
+for i made this by mathmatic analysis,so the raduis have calculated is limited, it can just fit for m<30, 
+because that if m become larger, the circle can add to diagonal but not to follow my rule, 
+so the deeper algorithm must along another way.
