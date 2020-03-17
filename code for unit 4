@@ -4,7 +4,7 @@
 #include<math.h>
 using namespace std;
 
-int Foo(int a)
+double Foo(int a)
 {
 	double r[100];
     r[1]=1;
@@ -31,27 +31,18 @@ int Foo(int a)
 	}
 	return s;
 }
-
-int add(int b)
+int add(int a, int b)
 {
-	int m;
-	m = b;
-	int l,s = 0;
-	for (l = 1; l <= m; l++)
-	{
-		s = s + 1;
-	}
-	return l;
+	return a + b;
 }
 
-//bool isEvenNum(int a)
-//{
-//	return a % 2 == 0;
-//}
+bool isEvenNum(int a)
+{
+	return a % 2 == 0;
+}
 
 TEST(FooTest, HandleNoneZeroInput)
 {
-	EXPECT_EQ(1, Foo(1));
 	EXPECT_EQ(1.02944, Foo(2));
 	EXPECT_EQ(1.05887, Foo(3));
 	EXPECT_EQ(1.12511, Foo(6));
@@ -60,15 +51,15 @@ TEST(FooTest, HandleNoneZeroInput)
 
 TEST(AddTest, HanleNoneZeroInput)
 {
-	EXPECT_EQ(10, add(10));
-	EXPECT_EQ(8, add(8));
+	EXPECT_EQ(10, add(10,0));
+	EXPECT_EQ(28, add(20,8));
 }
 
-//TEST(IsEvenNum, HandleNoneZeroInput)
-//{
-//	EXPECT_EQ(true, isEvenNum(40));
-//	EXPECT_EQ(false, isEvenNum(15));
-//}
+TEST(IsEvenNum, HandleNoneZeroInput)
+{
+	EXPECT_EQ(true, isEvenNum(40));
+	EXPECT_EQ(false, isEvenNum(15));
+}
 
 int main(int argc, _TCHAR* argv[])
 {
