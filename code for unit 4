@@ -1,0 +1,80 @@
+#include <iostream>
+#include <gtest/gtest.h>
+#include <tchar.h>
+#include<math.h>
+using namespace std;
+
+int Foo(int a)
+{
+	double r[100];
+    r[1]=1;
+    double o;
+    o=pow(2,0.5);
+    r[2]=3-(2*o);
+    for(int i=3;i<=5;i++)
+    {
+        r[i]=r[2];
+    }
+        for(int n=6;n<13;n++)
+    {
+        double t,y;
+        t=pow(r[n-1],0.5);
+        y=pow(t/(1+t),2);
+        r[n]=y;
+    }
+	double s = 0;
+	int m;
+	m = a;
+	for (int l = 1; l <= m; l++)
+	{
+		s = s + pow(r[l], 2);
+	}
+	return s;
+}
+
+int add(int b)
+{
+	int m;
+	m = b;
+	int l,s = 0;
+	for (l = 1; l <= m; l++)
+	{
+		s = s + 1;
+	}
+	return l;
+}
+
+//bool isEvenNum(int a)
+//{
+//	return a % 2 == 0;
+//}
+
+TEST(FooTest, HandleNoneZeroInput)
+{
+	EXPECT_EQ(1, Foo(1));
+	EXPECT_EQ(1.02944, Foo(2));
+	EXPECT_EQ(1.05887, Foo(3));
+	EXPECT_EQ(1.12511, Foo(6));
+	EXPECT_EQ(1.12774, Foo(7));
+}
+
+TEST(AddTest, HanleNoneZeroInput)
+{
+	EXPECT_EQ(10, add(10));
+	EXPECT_EQ(8, add(8));
+}
+
+//TEST(IsEvenNum, HandleNoneZeroInput)
+//{
+//	EXPECT_EQ(true, isEvenNum(40));
+//	EXPECT_EQ(false, isEvenNum(15));
+//}
+
+int main(int argc, _TCHAR* argv[])
+{
+	cout << "This is a test project" << endl;
+	testing::InitGoogleTest(&argc, argv);
+	RUN_ALL_TESTS();
+	getchar();
+	return 0;
+}
